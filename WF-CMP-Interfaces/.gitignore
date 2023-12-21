@@ -1,0 +1,20 @@
+﻿#
+# Root directories & files
+#
+
+/.vs/**
+/packages
+
+#
+# Nested directories & files
+#
+
+*Resource.cpp
+*Resource.h
+*Localization.cpp
+*Localization.h
+*mini.h
+**/bin/**
+**/obj/**
+**/*.user
+**/doc/**

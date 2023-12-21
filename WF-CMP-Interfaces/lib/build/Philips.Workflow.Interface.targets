@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="WorkflowInterface">
+    <CreateProperty Value="%(ClCompile.RuntimeLibrary)">
+      <Output TaskParameter="Value" PropertyName="Interface_RuntimeLibrary" />
+    </CreateProperty>
+    <!--- Debug.x86.v140-->
+    <Copy
+      Condition="($(Configuration.ToLower().IndexOf('debug')) &gt; -1) And ($(Interface_RuntimeLibrary.ToLower().IndexOf('dll')) == -1)"
+      SourceFiles="$(MSBuildThisFileDirectory)..\lib\Debug\Philips.Workflow.lib"
+      DestinationFiles="$(IntDir)Philips.Workflow.lib" />
+
+
+    <!--- // Release.x86.v140-->
+    <Copy
+      Condition="($(Configuration.ToLower().IndexOf('debug')) == -1) And ($(Interface_RuntimeLibrary.ToLower().IndexOf('dll')) == -1)"
+      SourceFiles="$(MSBuildThisFileDirectory)..\lib\Release\Philips.Workflow.lib"
+      DestinationFiles="$(IntDir)Philips.Workflow.lib" />
+
+  </Target>
+  <PropertyGroup Condition="('$(ProjectExt)'=='.vcxproj')">
+    <BuildDependsOn>WorkflowInterface;$(BuildDependsOn)</BuildDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="('$(ProjectExt)'=='.vcxproj')">
+    <Link>
+      <AdditionalDependencies>$(IntDir)Philips.Workflow.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

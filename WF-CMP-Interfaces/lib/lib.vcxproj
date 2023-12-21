@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props" Condition="Exists('..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props')" />
+  <Import Project="..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props" Condition="Exists('..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props')" />
+  <Import Project="..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props" Condition="Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props')" />
+  <Import Project="..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props" Condition="Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props')" />
+  <Import Project="..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props" Condition="Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props')" />
+  <Import Project="..\packages\Philips.Log.1.1.0.100320\build\Philips.Log.props" Condition="Exists('..\packages\Philips.Log.1.1.0.100320\build\Philips.Log.props')" />
+  <Import Project="..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props" Condition="Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props')" />
+  <Import Project="..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props" Condition="Exists('..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props')" />
+  <Import Project="..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props" Condition="Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props')" />
+  <Import Project="..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props" Condition="Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props')" />
+  <Import Project="..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props" Condition="Exists('..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props')" />
+  <Import Project="..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props" Condition="Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props')" />
+  <Import Project="..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props" Condition="Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props')" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{02E53FD2-BB88-4D55-82B5-449DECD93E7B}</ProjectGuid>
+    <RootNamespace>lib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Configuration)\</IntDir>
+    <TargetName>Philips.Workflow</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Configuration)\</IntDir>
+    <TargetName>Philips.Workflow</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\src;$(MSBuildProjectDirectory)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>"$(Res2Sense)" -k -c "$(ProjectDir)src" -h "$(ProjectDir)src" -n Philips::Workflow "$(ProjectDir)src\resource" Resource
+"$(Res2Sense)" -k -c "$(ProjectDir)src" -h "$(ProjectDir)src" -n Philips::Workflow "$(ProjectDir)src\localization" --keywordColumn 1 --languageColumn 7 Localization
+"$(MiniCompiler)" -i "$(ProjectDir)\src\studydetails.mini.txt" -o "$(ProjectDir)\src\studydetails.mini.h"
+"$(MiniCompiler)" -i "$(ProjectDir)\src\procedurestep.mini.txt" -o "$(ProjectDir)\src\procedurestep.mini.h"
+
+"$(MiniCompiler)" -i "$(ProjectDir)src\seriesdetails.mini.txt" -o "$(ProjectDir)src\seriesdetails.mini.h"
+</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\src;$(MSBuildProjectDirectory)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>"$(Res2Sense)" -k -c "$(ProjectDir)src" -h "$(ProjectDir)src" -n Philips::Workflow "$(ProjectDir)src\resource" Resource
+"$(Res2Sense)" -k -c "$(ProjectDir)src" -h "$(ProjectDir)src" -n Philips::Workflow "$(ProjectDir)src\localization" --keywordColumn 1 --languageColumn 7 Localization
+"$(MiniCompiler)" -i "$(ProjectDir)\src\studydetails.mini.txt" -o "$(ProjectDir)\src\studydetails.mini.h"
+"$(MiniCompiler)" -i "$(ProjectDir)\src\procedurestep.mini.txt" -o "$(ProjectDir)\src\procedurestep.mini.h"
+
+"$(MiniCompiler)" -i "$(ProjectDir)src\seriesdetails.mini.txt" -o "$(ProjectDir)src\seriesdetails.mini.h"
+</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="doxyfile" />
+    <None Include="Interface.props" />
+    <None Include="build\Philips.Workflow.Interface.props" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Workflow\control\banner.h" />
+    <ClInclude Include="include\Workflow\control\comboboxext.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\bannerpeer.h" />
+    <ClInclude Include="include\Workflow\eventloop.h" />
+    <ClInclude Include="include\Workflow\iniwriter.h" />
+    <ClInclude Include="include\Workflow\iphysicianrepository.h" />
+    <ClInclude Include="include\Workflow\ipreviewrun.h" />
+    <ClInclude Include="include\Workflow\ipreviewsource.h" />
+    <ClInclude Include="include\Workflow\iseriesnotification.h" />
+    <ClInclude Include="include\Workflow\application.h" />
+    <ClInclude Include="include\Workflow\binding\multiselectablecollection.h" />
+    <ClInclude Include="include\Workflow\binding\selectablecollection.h" />
+    <ClInclude Include="include\Workflow\control\dialogbox.h" />
+    <ClInclude Include="include\Workflow\control\editablecombobox.h" />
+    <ClInclude Include="include\Workflow\control\hyperlinklabel.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\dialogboxpeer.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\editablecomboboxpeer.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\filebrowserpeer.h" />
+    <ClInclude Include="include\Workflow\control\uistyle.h" />
+    <ClInclude Include="include\Workflow\binding.h" />
+    <ClInclude Include="include\Workflow\binding\bind.h" />
+    <ClInclude Include="include\Workflow\binding\collection.h" />
+    <ClInclude Include="include\Workflow\binding\command.h" />
+    <ClInclude Include="include\Workflow\binding\converter.h" />
+    <ClInclude Include="include\Workflow\binding\direction.h" />
+    <ClInclude Include="include\Workflow\binding\property.h" />
+    <ClInclude Include="include\Workflow\data\studydetails.mini.h" />
+    <ClInclude Include="include\Workflow\isystem.h" />
+    <ClInclude Include="include\Workflow\Media\iusbmonitor.h" />
+    <ClInclude Include="include\Workflow\Media\iusb.h" />
+    <ClInclude Include="include\Workflow\Media\usbmonitor.h" />
+    <ClInclude Include="include\Workflow\Media\usb.h" />
+    <ClInclude Include="include\Workflow\optional.h" />
+    <ClInclude Include="include\Workflow\physicianrepository.h" />
+    <ClInclude Include="include\Workflow\uuid.h" />
+    <ClInclude Include="include\Workflow\workloop.h" />
+    <ClInclude Include="src\control\bannerview.h" />
+    <ClInclude Include="src\control\bannerviewmodel.h" />
+    <ClInclude Include="src\control\Ui\bannercart.ui.h" />
+    <ClInclude Include="src\control\Ui\bannerintegrated.ui.h" />
+    <ClInclude Include="src\control\Ui\bannertsm.ui.h" />
+    <ClInclude Include="src\Media\devicereader.h" />
+    <ClInclude Include="src\Media\devicewatcher.h" />
+    <ClInclude Include="src\Media\usbeject.h" />
+    <ClInclude Include="src\Media\usbunlocker.h" />
+    <ClInclude Include="src\physician.h" />
+    <ClInclude Include="src\physicianstore.h" />
+    <ClInclude Include="src\procedurenotification.h" />
+    <ClInclude Include="include\Workflow\ilicense.h" />
+    <ClInclude Include="include\Workflow\ilicensefactory.h" />
+    <ClInclude Include="include\Workflow\image.h" />
+    <ClInclude Include="include\Workflow\imagebuffer.h" />
+    <ClInclude Include="include\Workflow\inireader.h" />
+    <ClInclude Include="include\Workflow\ipictorialsource.h" />
+    <ClInclude Include="include\Workflow\iprocedurenotification.h" />
+    <ClInclude Include="include\Workflow\istudynotification.h" />
+    <ClInclude Include="include\Workflow\istudyrepositorynotification.h" />
+    <ClInclude Include="include\Workflow\license.h" />
+    <ClInclude Include="include\Workflow\licensepluginfactory.h" />
+    <ClInclude Include="include\Workflow\pictorial.h" />
+    <ClInclude Include="include\Workflow\settings.h" />
+    <ClInclude Include="include\workflow.h" />
+    <ClInclude Include="include\Workflow\control.h" />
+    <ClInclude Include="include\Workflow\control\filebrowser.h" />
+    <ClInclude Include="include\Workflow\control\notificationdialog.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\notificationdialogpeer.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\toucheditboxpeer.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\virtualkeyboardpeer.h" />
+    <ClInclude Include="include\Workflow\control\toucheditbox.h" />
+    <ClInclude Include="include\Workflow\control\Ui\notificationdialog.ui.h" />
+    <ClInclude Include="include\Workflow\control\Ui\virtualkeyboard.ui.h" />
+    <ClInclude Include="include\Workflow\control\virtualkeyboard.h" />
+    <ClInclude Include="include\Workflow\datetime.h" />
+    <ClInclude Include="include\Workflow\event.h" />
+    <ClInclude Include="include\Workflow\irepository.h" />
+    <ClInclude Include="include\Workflow\istudyrepository.h" />
+    <ClInclude Include="include\Workflow\ireadonlystudyrepository.h" />
+    <ClInclude Include="include\Workflow\patient.h" />
+    <ClInclude Include="include\Workflow\personname.h" />
+    <ClInclude Include="include\Workflow\procedure.h" />
+    <ClInclude Include="include\Workflow\series.h" />
+    <ClInclude Include="include\Workflow\stringconverter.h" />
+    <ClInclude Include="include\Workflow\study.h" />
+    <ClInclude Include="src\seriesnotification.h" />
+    <ClInclude Include="src\studynotification.h" />
+    <ClInclude Include="include\Workflow\systemsettings.h" />
+    <ClInclude Include="src\control\customlistview.h" />
+    <ClInclude Include="src\control\dialogboxview.h" />
+    <ClInclude Include="src\control\dialogboxviewmodel.h" />
+    <ClInclude Include="src\control\filebrowserview.h" />
+    <ClInclude Include="src\control\filebrowserviewmodel.h" />
+    <ClInclude Include="src\control\Ui\dialogboxintegrated.ui.h" />
+    <ClInclude Include="src\control\Ui\dialogboxtouch.ui.h" />
+    <ClInclude Include="src\control\Ui\filebrowserintegrated.ui.h" />
+    <ClInclude Include="src\control\Ui\filebrowsertouch.ui.h" />
+    <ClInclude Include="src\control\Ui\scrollablelabel.ui.h" />
+    <ClInclude Include="src\Localization.h" />
+    <ClInclude Include="src\minitomodelconverter.h" />
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="include\Workflow\studyrepository.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="include\Workflow\binding\command.cpp" />
+    <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\control\bannerview.cpp" />
+    <ClCompile Include="src\control\bannerviewmodel.cpp" />
+    <ClCompile Include="src\control\comboboxext.cpp" />
+    <ClCompile Include="src\control\customlistview.cpp" />
+    <ClCompile Include="src\control\banner.cpp" />
+    <ClCompile Include="src\control\dialogbox.cpp" />
+    <ClCompile Include="src\control\dialogboxview.cpp" />
+    <ClCompile Include="src\control\dialogboxviewmodel.cpp" />
+    <ClCompile Include="src\control\editablecombobox.cpp" />
+    <ClCompile Include="src\control\filebrowser.cpp" />
+    <ClCompile Include="src\control\filebrowserviewmodel.cpp" />
+    <ClCompile Include="src\control\filebrowserview.cpp" />
+    <ClCompile Include="src\control\hyperlinklabel.cpp" />
+    <ClCompile Include="src\control\notificationdialog.cpp" />
+    <ClCompile Include="src\control\testpeer\bannerpeer.cpp" />
+    <ClCompile Include="src\control\testpeer\dialogboxpeer.cpp" />
+    <ClCompile Include="src\control\testpeer\editablecomboboxpeer.cpp" />
+    <ClCompile Include="src\control\testpeer\filebrowserpeer.cpp" />
+    <ClCompile Include="src\control\testpeer\toucheditboxpeer.cpp" />
+    <ClCompile Include="src\control\toucheditbox.cpp" />
+    <ClCompile Include="src\control\virtualkeyboard.cpp" />
+    <ClCompile Include="src\datetime.cpp" />
+    <ClCompile Include="src\eventloop.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\imagebuffer.cpp" />
+    <ClCompile Include="src\inireader.cpp" />
+    <ClCompile Include="src\iniwriter.cpp" />
+    <ClCompile Include="src\irepository.cpp" />
+    <ClCompile Include="src\license.cpp" />
+    <ClCompile Include="src\licensepluginfactory.cpp" />
+    <ClCompile Include="src\Localization.cpp" />
+    <ClCompile Include="src\Media\devicereader.cpp" />
+    <ClCompile Include="src\Media\devicewatcher.cpp" />
+    <ClCompile Include="src\Media\usbeject.cpp" />
+    <ClCompile Include="src\Media\usbmonitor.cpp" />
+    <ClCompile Include="src\Media\usb.cpp" />
+    <ClCompile Include="src\Media\usbunlocker.cpp" />
+    <ClCompile Include="src\minitomodelconverter.cpp" />
+    <ClCompile Include="src\patient.cpp" />
+    <ClCompile Include="src\personname.cpp" />
+    <ClCompile Include="src\physician.cpp" />
+    <ClCompile Include="src\physicianrepository.cpp" />
+    <ClCompile Include="src\physicianstore.cpp" />
+    <ClCompile Include="src\pictorial.cpp" />
+    <ClCompile Include="src\procedure.cpp" />
+    <ClCompile Include="src\procedurenotification.cpp" />
+    <ClCompile Include="src\Resource.cpp" />
+    <ClCompile Include="src\series.cpp" />
+    <ClCompile Include="src\seriesnotification.cpp" />
+    <ClCompile Include="src\settings.cpp" />
+    <ClCompile Include="src\stringconverter.cpp" />
+    <ClCompile Include="src\study.cpp" />
+    <ClCompile Include="src\studynotification.cpp" />
+    <ClCompile Include="src\studyrepository.cpp" />
+    <ClCompile Include="src\systemsettings.cpp" />
+    <ClCompile Include="src\uuid.cpp" />
+    <ClCompile Include="src\workloop.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\Workflow\data\studydetails.mini.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets" Condition="Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets')" />
+    <Import Project="..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets" Condition="Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets')" />
+    <Import Project="..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets" Condition="Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets')" />
+    <Import Project="..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets" Condition="Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets')" />
+    <Import Project="..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets" Condition="Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets')" />
+    <Import Project="..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets" Condition="Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets')" />
+    <Import Project="..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets" Condition="Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets')" />
+    <Import Project="..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets" Condition="Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Log.1.1.0.100320\build\Philips.Log.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Log.1.1.0.100320\build\Philips.Log.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props'))" />
+  </Target>
+</Project>

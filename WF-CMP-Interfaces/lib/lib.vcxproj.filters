@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="build\Philips.Workflow.Interface.props" />
+    <None Include="Interface.props" />
+    <None Include="doxyfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\workflow.h" />
+    <ClInclude Include="include\Workflow\study.h" />
+    <ClInclude Include="include\Workflow\event.h" />
+    <ClInclude Include="include\Workflow\datetime.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\virtualkeyboardpeer.h">
+      <Filter>control\testpeer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\virtualkeyboard.h">
+      <Filter>control</Filter>
+    </ClInclude>
+    <ClInclude Include="include\workflow\control.h" />
+    <ClInclude Include="include\Workflow\control\Ui\virtualkeyboard.ui.h">
+      <Filter>control\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\toucheditbox.h">
+      <Filter>control</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\testpeer\notificationdialogpeer.h">
+      <Filter>control\testpeer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\testpeer\toucheditboxpeer.h">
+      <Filter>control\testpeer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\Ui\notificationdialog.ui.h">
+      <Filter>control\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\patient.h" />
+    <ClInclude Include="include\Workflow\personname.h" />
+    <ClInclude Include="include\Workflow\ireadonlystudyrepository.h" />
+    <ClInclude Include="include\Workflow\istudyrepository.h" />
+    <ClInclude Include="include\Workflow\irepository.h" />
+    <ClInclude Include="include\Workflow\procedure.h" />
+    <ClInclude Include="include\Workflow\series.h" />
+    <ClInclude Include="include\Workflow\stringconverter.h" />
+    <ClInclude Include="include\Workflow\control\notificationdialog.h" />
+    <ClInclude Include="include\Workflow\settings.h" />
+    <ClInclude Include="include\Workflow\application.h" />
+    <ClInclude Include="include\Workflow\binding.h" />
+    <ClInclude Include="include\Workflow\binding\direction.h">
+      <Filter>binding</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\binding\property.h">
+      <Filter>binding</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\binding\command.h" />
+    <ClInclude Include="include\Workflow\binding\collection.h">
+      <Filter>binding</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\binding\converter.h" />
+    <ClInclude Include="include\Workflow\binding\bind.h" />
+    <ClInclude Include="include\Workflow\control\filebrowser.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\filebrowserpeer.h" />
+    <ClInclude Include="include\Workflow\control\uistyle.h" />
+    <ClInclude Include="src\control\filebrowserview.h" />
+    <ClInclude Include="src\control\filebrowserviewmodel.h" />
+    <ClInclude Include="src\control\Ui\filebrowserintegrated.ui.h" />
+    <ClInclude Include="src\control\Ui\filebrowsertouch.ui.h" />
+    <ClInclude Include="src\control\customlistview.h" />
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\control\Ui\scrollablelabel.ui.h" />
+    <ClInclude Include="src\control\Ui\dialogboxtouch.ui.h" />
+    <ClInclude Include="src\control\Ui\dialogboxintegrated.ui.h" />
+    <ClInclude Include="src\control\dialogboxviewmodel.h" />
+    <ClInclude Include="include\Workflow\control\dialogbox.h" />
+    <ClInclude Include="src\control\dialogboxview.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\dialogboxpeer.h" />
+    <ClInclude Include="include\Workflow\studyrepository.h" />
+    <ClInclude Include="include\Workflow\data\studydetails.mini.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Localization.h" />
+    <ClInclude Include="include\Workflow\binding\selectablecollection.h" />
+    <ClInclude Include="include\Workflow\binding\multiselectablecollection.h" />
+    <ClInclude Include="include\Workflow\ilicense.h" />
+    <ClInclude Include="include\Workflow\ilicensefactory.h" />
+    <ClInclude Include="include\Workflow\license.h" />
+    <ClInclude Include="include\Workflow\licensepluginfactory.h" />
+    <ClInclude Include="include\Workflow\systemsettings.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\editablecomboboxpeer.h">
+      <Filter>control\testpeer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\control\editablecombobox.h">
+      <Filter>control</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\inireader.h" />
+    <ClInclude Include="include\Workflow\control\hyperlinklabel.h">
+      <Filter>control</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Workflow\image.h" />
+    <ClInclude Include="include\Workflow\imagebuffer.h" />
+    <ClInclude Include="include\Workflow\pictorial.h" />
+    <ClInclude Include="include\Workflow\ipictorialsource.h" />
+    <ClInclude Include="include\Workflow\istudyrepositorynotification.h" />
+    <ClInclude Include="include\Workflow\iprocedurenotification.h" />
+    <ClInclude Include="src\minitomodelconverter.h" />
+    <ClInclude Include="src\procedurenotification.h" />
+    <ClInclude Include="src\studynotification.h" />
+    <ClInclude Include="include\Workflow\istudynotification.h" />
+    <ClInclude Include="src\seriesnotification.h" />
+    <ClInclude Include="include\Workflow\iseriesnotification.h" />
+    <ClInclude Include="include\Workflow\iniwriter.h" />
+    <ClInclude Include="include\Workflow\ipreviewsource.h" />
+    <ClInclude Include="include\Workflow\ipreviewrun.h" />
+    <ClInclude Include="include\Workflow\control\banner.h" />
+    <ClInclude Include="include\Workflow\control\testpeer\bannerpeer.h" />
+    <ClInclude Include="src\control\Ui\bannerintegrated.ui.h">
+      <Filter>control\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\control\Ui\bannercart.ui.h">
+      <Filter>control\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\control\Ui\bannertsm.ui.h">
+      <Filter>control\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\control\bannerview.h" />
+    <ClInclude Include="src\control\bannerviewmodel.h" />
+    <ClInclude Include="include\Workflow\iphysicianrepository.h" />
+    <ClInclude Include="include\Workflow\physicianrepository.h" />
+    <ClInclude Include="src\physicianstore.h" />
+    <ClInclude Include="src\physician.h" />
+    <ClInclude Include="include\Workflow\isystem.h" />
+    <ClInclude Include="include\Workflow\uuid.h" />
+    <ClInclude Include="include\Workflow\optional.h" />
+    <ClInclude Include="include\Workflow\eventloop.h" />
+    <ClInclude Include="include\Workflow\workloop.h" />
+    <ClInclude Include="include\Workflow\Media\iusb.h" />
+    <ClInclude Include="include\Workflow\Media\usb.h" />
+    <ClInclude Include="include\Workflow\Media\iusbmonitor.h" />
+    <ClInclude Include="include\Workflow\Media\usbmonitor.h" />
+    <ClInclude Include="src\Media\devicereader.h" />
+    <ClInclude Include="src\Media\devicewatcher.h" />
+    <ClInclude Include="src\Media\usbunlocker.h" />
+    <ClInclude Include="include\Workflow\control\comboboxext.h">
+      <Filter>control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Media\usbeject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\study.cpp" />
+    <ClCompile Include="src\datetime.cpp" />
+    <ClCompile Include="src\control\virtualkeyboard.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\control\toucheditbox.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stringconverter.cpp" />
+    <ClCompile Include="src\control\notificationdialog.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\control\filebrowserview.cpp" />
+    <ClCompile Include="src\control\filebrowserviewmodel.cpp" />
+    <ClCompile Include="src\settings.cpp" />
+    <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\control\filebrowser.cpp" />
+    <ClCompile Include="src\control\testpeer\filebrowserpeer.cpp" />
+    <ClCompile Include="src\Resource.cpp" />
+    <ClCompile Include="include\Workflow\binding\command.cpp" />
+    <ClCompile Include="src\control\dialogboxviewmodel.cpp" />
+    <ClCompile Include="src\control\dialogbox.cpp" />
+    <ClCompile Include="src\control\dialogboxview.cpp" />
+    <ClCompile Include="src\control\testpeer\dialogboxpeer.cpp" />
+    <ClCompile Include="src\studyrepository.cpp" />
+    <ClCompile Include="src\Localization.cpp" />
+    <ClCompile Include="src\license.cpp" />
+    <ClCompile Include="src\licensepluginfactory.cpp" />
+    <ClCompile Include="src\systemsettings.cpp" />
+    <ClCompile Include="src\control\editablecombobox.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\control\testpeer\editablecomboboxpeer.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inireader.cpp" />
+    <ClCompile Include="src\control\hyperlinklabel.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\control\customlistview.cpp" />
+    <ClCompile Include="src\imagebuffer.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\pictorial.cpp" />
+    <ClCompile Include="src\control\testpeer\toucheditboxpeer.cpp">
+      <Filter>control\testpeer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\studynotification.cpp" />
+    <ClCompile Include="src\procedurenotification.cpp" />
+    <ClCompile Include="src\minitomodelconverter.cpp" />
+    <ClCompile Include="src\seriesnotification.cpp" />
+    <ClCompile Include="src\iniwriter.cpp" />
+    <ClCompile Include="src\control\banner.cpp" />
+    <ClCompile Include="src\control\testpeer\bannerpeer.cpp" />
+    <ClCompile Include="src\control\bannerview.cpp" />
+    <ClCompile Include="src\control\bannerviewmodel.cpp" />
+    <ClCompile Include="src\physician.cpp" />
+    <ClCompile Include="src\physicianrepository.cpp" />
+    <ClCompile Include="src\physicianstore.cpp" />
+    <ClCompile Include="src\uuid.cpp" />
+    <ClCompile Include="src\eventloop.cpp" />
+    <ClCompile Include="src\workloop.cpp" />
+    <ClCompile Include="src\Media\devicereader.cpp" />
+    <ClCompile Include="src\Media\devicewatcher.cpp" />
+    <ClCompile Include="src\Media\usb.cpp" />
+    <ClCompile Include="src\Media\usbunlocker.cpp" />
+    <ClCompile Include="src\Media\usbmonitor.cpp" />
+    <ClCompile Include="src\control\comboboxext.cpp">
+      <Filter>control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Media\usbeject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="control">
+      <UniqueIdentifier>{0a93a22a-3745-469a-8d4a-815e3f1983b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="control\Ui">
+      <UniqueIdentifier>{37a981be-2f26-4b0a-a746-92cf790e7b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="control\testpeer">
+      <UniqueIdentifier>{5151c02f-1f4e-4105-807b-c663320730a8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="src\patient.cpp" />
+    <ClCompile Include="src\personname.cpp" />
+    <ClCompile Include="src\irepository.cpp" />
+    <ClCompile Include="src\series.cpp" />
+    <ClCompile Include="src\procedure.cpp" />
+    <Filter Include="binding">
+      <UniqueIdentifier>{44ec83b6-89ea-49b0-a0c9-03464d9508aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{158ddb81-42a3-4a6d-991f-a99e4d1fb6a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\Workflow\data\studydetails.mini.txt">
+      <Filter>data</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

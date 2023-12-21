@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props" Condition="Exists('..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props')" />
+  <Import Project="..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props" Condition="Exists('..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props')" />
+  <Import Project="..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props" Condition="Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props')" />
+  <Import Project="..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props" Condition="Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props')" />
+  <Import Project="..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props" Condition="Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props')" />
+  <Import Project="..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props" Condition="Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props')" />
+  <Import Project="..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props" Condition="Exists('..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props')" />
+  <Import Project="..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props" Condition="Exists('..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props')" />
+  <Import Project="..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props" Condition="Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props')" />
+  <Import Project="..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props" Condition="Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props')" />
+  <Import Project="..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props" Condition="Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props')" />
+  <Import Project="..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props" Condition="Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props')" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{EC8C4EDF-DE80-4CE9-80CE-E011312464D0}</ProjectGuid>
+    <RootNamespace>test</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="..\lib\Interface.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="..\lib\Interface.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Configuration)\</IntDir>
+    <TargetName>Philips.Workflow.Test</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Configuration)\</IntDir>
+    <TargetName>Philips.Workflow.Test</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wbemuuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shlwapi.lib;ws2_32.lib;usp10.lib;winmm.lib;gdiplus.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wbemuuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shlwapi.lib;ws2_32.lib;usp10.lib;winmm.lib;gdiplus.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="applicationtest.cpp" />
+    <ClCompile Include="automateduitest.cpp" />
+    <ClCompile Include="binding\bindingtest.cpp" />
+    <ClCompile Include="binding\collectiontest.cpp" />
+    <ClCompile Include="binding\commandtest.cpp" />
+    <ClCompile Include="binding\composite.cpp" />
+    <ClCompile Include="binding\editableselectablecollectiontest.cpp" />
+    <ClCompile Include="binding\multiselectablecollectiontest.cpp" />
+    <ClCompile Include="binding\propertytest.cpp" />
+    <ClCompile Include="binding\selectablecollectiontest.cpp" />
+    <ClCompile Include="binding\testpeer.cpp" />
+    <ClCompile Include="binding\view.cpp" />
+    <ClCompile Include="binding\viewmodel.cpp" />
+    <ClCompile Include="comboboxexttest.cpp" />
+    <ClCompile Include="datetimetest.cpp" />
+    <ClCompile Include="dialogboxtest.cpp" />
+    <ClCompile Include="editablecomboboxtest.cpp" />
+    <ClCompile Include="eventlooptest.cpp" />
+    <ClCompile Include="eventtest.cpp" />
+    <ClCompile Include="filebrowsertest.cpp" />
+    <ClCompile Include="filebrowserviewmodeltest.cpp" />
+    <ClCompile Include="hyperlinklabeltest.cpp" />
+    <ClCompile Include="iapplication.cpp" />
+    <ClCompile Include="imagebuffertest.cpp" />
+    <ClCompile Include="imagetest.cpp" />
+    <ClCompile Include="inireadertest.cpp" />
+    <ClCompile Include="iniwritertest.cpp" />
+    <ClCompile Include="ipreviewruntest.cpp" />
+    <ClCompile Include="irepositorytest.cpp" />
+    <ClCompile Include="licensetest.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="bannertest.cpp" />
+    <ClCompile Include="bannerviewmodeltest.cpp" />
+    <ClCompile Include="Media\usbmonitortest.cpp" />
+    <ClCompile Include="Media\usbtest.cpp" />
+    <ClCompile Include="notificationdialogtest.cpp" />
+    <ClCompile Include="optionaltest.cpp" />
+    <ClCompile Include="patienttest.cpp" />
+    <ClCompile Include="personnametest.cpp" />
+    <ClCompile Include="physicianrepositorytest.cpp" />
+    <ClCompile Include="procedurenotificationtest.cpp" />
+    <ClCompile Include="proceduretest.cpp" />
+    <ClCompile Include="seriesnotificationtest.cpp" />
+    <ClCompile Include="seriestest.cpp" />
+    <ClCompile Include="settingstest.cpp" />
+    <ClCompile Include="stringconvertertest.cpp" />
+    <ClCompile Include="studynotificationtest.cpp" />
+    <ClCompile Include="studyrepositorytest.cpp" />
+    <ClCompile Include="studytest.cpp" />
+    <ClCompile Include="systemsettingstest.cpp" />
+    <ClCompile Include="testmodelcreator.cpp" />
+    <ClCompile Include="testmodelverifier.cpp" />
+    <ClCompile Include="toucheditboxtest.cpp" />
+    <ClCompile Include="uuidtest.cpp" />
+    <ClCompile Include="virtualkeyboardtest.cpp" />
+    <ClCompile Include="windowmessageprocessor.cpp" />
+    <ClCompile Include="worklooptest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib\lib.vcxproj">
+      <Project>{02e53fd2-bb88-4d55-82b5-449decd93e7b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="automateduitest.h" />
+    <ClInclude Include="binding\composite.h" />
+    <ClInclude Include="binding\testpeer.h" />
+    <ClInclude Include="binding\view.h" />
+    <ClInclude Include="binding\view.ui.h" />
+    <ClInclude Include="binding\viewmodel.h" />
+    <ClInclude Include="iapplication.h" />
+    <ClInclude Include="iapplication.hpp" />
+    <ClInclude Include="licensefactory.mock.h" />
+    <ClInclude Include="Mock\usb.mock.h" />
+    <ClInclude Include="Mock\usbMonitor.mock.h" />
+    <ClInclude Include="platformlicense.mock.h" />
+    <ClInclude Include="testmodelcreator.h" />
+    <ClInclude Include="testmodelverifier.h" />
+    <ClInclude Include="unittest.h" />
+    <ClInclude Include="windowmessageprocessor.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets" Condition="Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets')" />
+    <Import Project="..\packages\gmock.v1.8.1.8.1\build\native\gmock.v1.8.targets" Condition="Exists('..\packages\gmock.v1.8.1.8.1\build\native\gmock.v1.8.targets')" />
+    <Import Project="..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets" Condition="Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets')" />
+    <Import Project="..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets" Condition="Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets')" />
+    <Import Project="..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets" Condition="Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets')" />
+    <Import Project="..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets" Condition="Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets')" />
+    <Import Project="..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets" Condition="Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets')" />
+    <Import Project="..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets" Condition="Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets')" />
+    <Import Project="..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets" Condition="Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Build.Git.1.0.0.100058\build\Philips.Build.Git.targets'))" />
+    <Error Condition="!Exists('..\packages\gmock.v1.8.1.8.1\build\native\gmock.v1.8.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gmock.v1.8.1.8.1\build\native\gmock.v1.8.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Database.1.0.0.100527\build\Philips.Database.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Net.1.0.0.1000741\build\Philips.Net.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sscf.1.2.0.1000501\build\Philips.Sscf.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Trace.1.0.0.100314\build\Philips.Trace.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.IPlatform.1.0.0.100020\build\Philips.IPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Mini.1.0.0.100295\build\Philips.Mini.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.1.13.0.3925-master\build\Philips.Sense.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.Automation.1.13.0.3925-master\build\Philips.Sense.Automation.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Sense.DLS.1.13.0.3925-master\build\Philips.Sense.DLS.targets'))" />
+    <Error Condition="!Exists('..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Models.Database.1.0.0.100111\build\Philips.Models.Database.props'))" />
+    <Error Condition="!Exists('..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Philips.Models.Dicom.1.0.0.100059\build\Philips.Models.Dicom.props'))" />
+  </Target>
+</Project>

@@ -1,0 +1,4 @@
+model Philips.Workflow.StudyDetails('STUD')
+{
+	uint8 importStatus			= 'IMST' "Import Status";
+}

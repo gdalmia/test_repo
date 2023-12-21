@@ -1,0 +1,23 @@
+pipeline {
+  agent {
+    node {
+      label 'iXR2019'
+	    customWorkspace 'D:\\Workflow\\Interface'
+    }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        bat 'call Build\\intbuild.bat coverage'
+      }
+    }
+    stage('Package') {
+      steps {
+        bat '''
+          call Build\\intbuild.bat build
+			    call Build\\intbuild.bat pack
+		    '''
+      }
+    }
+  }
+}

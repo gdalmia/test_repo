@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="applicationtest.cpp" />
+    <ClCompile Include="automateduitest.cpp" />
+    <ClCompile Include="binding\bindingtest.cpp" />
+    <ClCompile Include="binding\collectiontest.cpp" />
+    <ClCompile Include="binding\commandtest.cpp" />
+    <ClCompile Include="binding\composite.cpp" />
+    <ClCompile Include="binding\multiselectablecollectiontest.cpp" />
+    <ClCompile Include="binding\propertytest.cpp" />
+    <ClCompile Include="binding\selectablecollectiontest.cpp" />
+    <ClCompile Include="binding\testpeer.cpp" />
+    <ClCompile Include="binding\view.cpp" />
+    <ClCompile Include="binding\viewmodel.cpp" />
+    <ClCompile Include="datetimetest.cpp" />
+    <ClCompile Include="dialogboxtest.cpp" />
+    <ClCompile Include="editablecomboboxtest.cpp" />
+    <ClCompile Include="eventtest.cpp" />
+    <ClCompile Include="filebrowsertest.cpp" />
+    <ClCompile Include="filebrowserviewmodeltest.cpp" />
+    <ClCompile Include="hyperlinklabeltest.cpp" />
+    <ClCompile Include="iapplication.cpp" />
+    <ClCompile Include="imagetest.cpp" />
+    <ClCompile Include="inireadertest.cpp" />
+    <ClCompile Include="irepositorytest.cpp" />
+    <ClCompile Include="licensetest.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="notificationdialogtest.cpp" />
+    <ClCompile Include="patienttest.cpp" />
+    <ClCompile Include="personnametest.cpp" />
+    <ClCompile Include="proceduretest.cpp" />
+    <ClCompile Include="seriestest.cpp" />
+    <ClCompile Include="settingstest.cpp" />
+    <ClCompile Include="stringconvertertest.cpp" />
+    <ClCompile Include="studyrepositorytest.cpp" />
+    <ClCompile Include="studytest.cpp" />
+    <ClCompile Include="systemsettingstest.cpp" />
+    <ClCompile Include="virtualkeyboardtest.cpp" />
+    <ClCompile Include="imagebuffertest.cpp" />
+    <ClCompile Include="binding\editableselectablecollectiontest.cpp" />
+    <ClCompile Include="procedurenotificationtest.cpp" />
+    <ClCompile Include="studynotificationtest.cpp" />
+    <ClCompile Include="testmodelcreator.cpp" />
+    <ClCompile Include="testmodelverifier.cpp" />
+    <ClCompile Include="seriesnotificationtest.cpp" />
+    <ClCompile Include="iniwritertest.cpp" />
+    <ClCompile Include="bannerviewmodeltest.cpp" />
+    <ClCompile Include="bannertest.cpp" />
+    <ClCompile Include="physicianrepositorytest.cpp" />
+    <ClCompile Include="ipreviewruntest.cpp" />
+    <ClCompile Include="uuidtest.cpp" />
+    <ClCompile Include="optionaltest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest-all.cc" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock-all.cc" />
+    <ClCompile Include="windowmessageprocessor.cpp" />
+    <ClCompile Include="worklooptest.cpp" />
+    <ClCompile Include="eventlooptest.cpp" />
+    <ClCompile Include="Media\usbtest.cpp" />
+    <ClCompile Include="Media\usbmonitortest.cpp" />
+    <ClCompile Include="comboboxexttest.cpp" />
+    <ClCompile Include="toucheditboxtest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="automateduitest.h" />
+    <ClInclude Include="binding\composite.h" />
+    <ClInclude Include="binding\testpeer.h" />
+    <ClInclude Include="binding\view.h" />
+    <ClInclude Include="binding\view.ui.h" />
+    <ClInclude Include="binding\viewmodel.h" />
+    <ClInclude Include="iapplication.h" />
+    <ClInclude Include="iapplication.hpp" />
+    <ClInclude Include="licensefactory.mock.h" />
+    <ClInclude Include="platformlicense.mock.h" />
+    <ClInclude Include="testmodelcreator.h" />
+    <ClInclude Include="testmodelverifier.h" />
+    <ClInclude Include="unittest.h" />
+    <ClInclude Include="windowmessageprocessor.h" />
+    <ClInclude Include="Mock\usb.mock.h" />
+    <ClInclude Include="Mock\usbMonitor.mock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

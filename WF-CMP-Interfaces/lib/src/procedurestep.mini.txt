@@ -1,0 +1,5 @@
+model Philips.Workflow.ProcedureStep('PROC')
+{
+	string phase	= 'PHSE' "Procedure Phase";
+	string source	= 'SRC'  "Procedure Source";
+}

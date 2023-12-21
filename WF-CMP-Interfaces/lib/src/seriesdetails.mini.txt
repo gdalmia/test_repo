@@ -1,0 +1,5 @@
+model Philips.Workflow.SeriesDetails('SERD')
+{
+	uint8 archiveStatus		= 'ARST' "Archive Status";
+	uint8 importStatus		= 'IMST' "Import Status";
+}
