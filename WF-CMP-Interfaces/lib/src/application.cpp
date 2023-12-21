@@ -1,4 +1,4 @@
-// Copyright Koninklijke Philips N.V., 2020. All Right Reserved
+//// Copyright Koninklijke Philips N.V., 2020. All Right Reserved
 
 #include "Workflow/application.h"
 #include "Workflow/settings.h"
